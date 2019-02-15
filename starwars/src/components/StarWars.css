@@ -1,49 +1,53 @@
 .star-wars-list {
-    display: flex;
-    width: 100%;
-    overflow: scroll;
-    
+  display: flex;
+  width: 100%;
+  overflow: scroll;
 }
 
 .star-wars-list::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .star-wars-list-wrapper {
-    display: flex;
-    width: 400%;
-    height: 560px;
-    align-items: center;
-    margin-left: 20px;
+  display: flex;
+  min-width: 400%;
+  height: 360px;
+  align-items: center;
+  margin-left: 20px;
+}
+
+h4 {
+  font-size: 18px;
 }
 
 .star-wars-card {
-    box-sizing: border-box;
-    width: 220px;
-    height: 150px;
-    margin: 5px;
-    max-width: 95%;
-    background: linear-gradient(170deg, #484848 5%, #000 50%);
-    overflow: hidden;
-    padding: 0 20px;
-    padding-bottom: 10px;
-    color: #fff;
-    transition: all 500ms;
+  font-size: 12px;
+  box-sizing: border-box;
+  width: 220px;
+  height: 150px;
+  margin: 5px;
+  max-width: 95%;
+  background: linear-gradient(170deg, #484848 5%, #000 50%);
+  overflow: hidden;
+  padding: 0 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  transition: all 500ms;
 }
 
 .card-hovered {
-    height: 550px;
-    width: 500px;
-    transition: all 500ms;
-    overflow-y: scroll;
-    color: #fff;
+  height: 350px;
+  width: 350px;
+  transition: all 500ms;
+  overflow-y: scroll;
+  color: #fff;
 }
 
 a {
-    color: #fff;
+  color: #fff;
 }
 
 .additional-info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }

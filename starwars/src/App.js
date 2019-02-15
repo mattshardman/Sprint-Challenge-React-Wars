@@ -14,10 +14,8 @@ class App extends Component {
   componentDidMount() {
     document.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
-        console.log('scrolled');
         const { nextPage } = this.state;
         if (nextPage) {
-          console.log(nextPage);
           this.getCharacters(nextPage);
         }
       }
@@ -32,8 +30,10 @@ class App extends Component {
     fetch(URL)
       .then(res => res.json())
       .then((data) => {
-        console.log(data.next);
-        this.setState(state => ({ nextPage: data.next, starWarsChars: [...state.starWarsChars, ...data.results] }));
+        this.setState(state => ({
+          nextPage: data.next,
+          starWarsChars: [...state.starWarsChars, ...data.results],
+        }));
       })
       .catch((err) => {
         throw new Error(err);
@@ -42,13 +42,12 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state);
     const { starWarsChars } = this.state;
     return (
       <div className="App">
-
         <div className="content">
           <h1 className="Header">REACT WARS</h1>
+          <div style={{ height: '30vh' }} />
           { starWarsChars
           && (
           <CharacterList
