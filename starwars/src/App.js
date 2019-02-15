@@ -6,11 +6,22 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      nextPage: null,
       starWarsChars: [],
     };
   }
 
   componentDidMount() {
+    document.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        console.log('scrolled');
+        const { nextPage } = this.state;
+        if (nextPage) {
+          console.log(nextPage);
+          this.getCharacters(nextPage);
+        }
+      }
+    });
     this.getCharacters('https://swapi.co/api/people');
   }
 
@@ -21,14 +32,17 @@ class App extends Component {
     fetch(URL)
       .then(res => res.json())
       .then((data) => {
-        this.setState({ starWarsChars: data.results });
+        console.log(data.next);
+        this.setState(state => ({ nextPage: data.next, starWarsChars: [...state.starWarsChars, ...data.results] }));
       })
       .catch((err) => {
         throw new Error(err);
       });
   };
 
+
   render() {
+    console.log(this.state);
     const { starWarsChars } = this.state;
     return (
       <div className="App">
@@ -36,7 +50,18 @@ class App extends Component {
         <div className="content">
           <h1 className="Header">REACT WARS</h1>
           { starWarsChars
-          && <CharacterList starWarsChars={starWarsChars} />
+          && (
+          <CharacterList
+            starWarsChars={starWarsChars.slice(0, 10)}
+          />
+          )
+        }
+          { starWarsChars.length > 10
+          && (
+          <CharacterList
+            starWarsChars={starWarsChars.slice(10, 20)}
+          />
+          )
         }
         </div>
         <div className="bg" />
