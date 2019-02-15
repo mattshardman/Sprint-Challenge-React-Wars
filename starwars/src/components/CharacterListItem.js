@@ -22,7 +22,6 @@ class CharacterListItem extends React.Component {
       name, created, edited, films, species, vehicles, starships, ...charWithRemoved
     } = char;
     const charArray = Object.entries(charWithRemoved);
-    console.log(image);
     return (
       <div
         style={{
@@ -50,7 +49,6 @@ class CharacterListItem extends React.Component {
           )) }
 
           <div>
-            <div><strong>{name}</strong> has been in: {films.length}</div>
             { films.length
               ? <div><strong>Films:</strong> { films.map(each => <li><a href={each}>{each}</a></li>)}</div>
               : null
