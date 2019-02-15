@@ -1,0 +1,41 @@
+.star-wars-list {
+    display: flex;
+    width: 100%;
+    overflow: scroll;
+    
+}
+
+.star-wars-list::-webkit-scrollbar {
+    display: none;
+}
+
+.star-wars-list-wrapper {
+    display: flex;
+    width: 400%;
+    height: 350px;
+    align-items: center;
+}
+
+.star-wars-card {
+    width: 200px;
+    height: 120px;
+    margin: 5px;
+    max-width: 95%;
+    background: #fff;
+    overflow: hidden;
+    padding: 5px;
+    transition: all 500ms;
+}
+
+.card-hovered {
+    /* position: absolute; */
+    height: 300px;
+    width: 400px;
+    transition: all 500ms;
+    overflow-y: scroll;
+}
+
+.additional-info {
+    display: flex;
+    flex-direction: column;
+}

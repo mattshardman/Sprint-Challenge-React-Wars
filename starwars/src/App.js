@@ -6,7 +6,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      starwarsChars: [],
+      starWarsChars: [],
     };
   }
 
@@ -19,9 +19,9 @@ class App extends Component {
     // At a high level we are calling an API to fetch some starwars data from the open web.
     // We then take that data and resolve it our state.
     fetch(URL)
-      .then((res) => res.json())
+      .then(res => res.json())
       .then((data) => {
-        this.setState({ starwarsChars: data.results });
+        this.setState({ starWarsChars: data.results });
       })
       .catch((err) => {
         throw new Error(err);
@@ -29,14 +29,17 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state);
-    const { starwarsChars } = this.state;
+    const { starWarsChars } = this.state;
     return (
       <div className="App">
-        <h1 className="Header">React Wars</h1>
-        { starwarsChars
-          && <CharacterList starwarsChars={starwarsChars} />
+
+        <div className="content">
+          <h1 className="Header">REACT WARS</h1>
+          { starWarsChars
+          && <CharacterList starWarsChars={starWarsChars} />
         }
+        </div>
+        <div className="bg" />
       </div>
     );
   }
