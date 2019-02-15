@@ -12,27 +12,35 @@
 .star-wars-list-wrapper {
     display: flex;
     width: 400%;
-    height: 350px;
+    height: 560px;
     align-items: center;
+    margin-left: 20px;
 }
 
 .star-wars-card {
-    width: 200px;
-    height: 120px;
+    box-sizing: border-box;
+    width: 220px;
+    height: 150px;
     margin: 5px;
     max-width: 95%;
-    background: #fff;
+    background: linear-gradient(170deg, #484848 5%, #000 50%);
     overflow: hidden;
-    padding: 5px;
+    padding: 0 20px;
+    padding-bottom: 10px;
+    color: #fff;
     transition: all 500ms;
 }
 
 .card-hovered {
-    /* position: absolute; */
-    height: 300px;
-    width: 400px;
+    height: 550px;
+    width: 500px;
     transition: all 500ms;
     overflow-y: scroll;
+    color: #fff;
+}
+
+a {
+    color: #fff;
 }
 
 .additional-info {

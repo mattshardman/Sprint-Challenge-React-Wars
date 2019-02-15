@@ -51,21 +51,21 @@ class CharacterListItem extends React.Component {
         && (
         <div className="additional-info">
           { charArray.map(attribute => (
-            <React.Fragment>
-              <div>
-                <strong>{attribute[0][0].toUpperCase()}
-                  {attribute[0].slice(1)}:
-                </strong> {attribute[1].includes('https') ? 'link' : attribute[1]}
-              </div>
-              <div>
-                { films.map(each => each)}
-                { species.map(each => each)}
-                { vehicles.map(each => each)}
-                { starships.map(each => each)}
-              </div>
-            </React.Fragment>
+            <div>
+              <strong>{attribute[0][0].toUpperCase()}
+                {attribute[0].slice(1)}:
+              </strong> {attribute[1].includes('https') ? <a href={attribute[1]}>{attribute[1]}</a> : attribute[1]}
+            </div>
+
+
           )) }
 
+          <div>
+            { films.length ? <div><strong>Films:</strong> { films.map(each => <li><a href={each}>{each}</a></li>)}</div> : null }
+            { species.length ? <div><strong>Species:</strong> { species.map(each => <li><a href={each}>{each}</a></li>)}</div> : null}
+            { vehicles.length ? <div><strong>Vehicles:</strong>{ vehicles.map(each => <li><a href={each}>{each}</a></li>)}</div> : null}
+            { starships.length ? <div><strong>Starships:</strong> { starships.map(each => <li><a href={each}>{each}</a></li>)}</div> : null}
+          </div>
         </div>
         )
         }
