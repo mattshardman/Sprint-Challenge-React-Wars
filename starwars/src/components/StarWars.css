@@ -10,7 +10,7 @@
 
 .star-wars-list-wrapper {
   display: flex;
-  min-width: 400%;
+  width: 400%;
   height: 360px;
   align-items: center;
   margin-left: 20px;
